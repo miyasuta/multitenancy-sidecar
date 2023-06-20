@@ -1,0 +1,17 @@
+POST http://localhost:4004/-/cds/deployment/subscribe HTTP/1.1
+Content-Type: application/json
+Authorization: Basic yves:
+
+{ "tenant": "t1" }
+
+
+###
+POST http://localhost:4004/catalog/Books HTTP/1.1
+Content-Type: application/json
+Authorization: Basic alice:
+
+{ 
+    "ID": 1,
+    "title": "Tenant 1",
+    "stock": 100 
+}
