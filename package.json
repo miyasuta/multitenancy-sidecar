@@ -19,7 +19,9 @@
   "cds": {
     "profile": "with-mtx-sidecar",
     "requires": {
-      "multitenancy": true
+      "multitenancy": true,
+      "cds.xt.DeploymentService": false,
+      "cds.xt.ModelProviderService": "from-sidecar"
     }
   }
 }

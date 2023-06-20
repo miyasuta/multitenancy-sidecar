@@ -15,6 +15,27 @@
     "start": "cds-serve"
   },
   "cds": {
-    "profile": "mtx-sidecar"
+    "requires": {
+      "cds.xt.ModelProviderService": "in-sidecar",
+      "cds.xt.SaasProvisioningService": true,
+      "cds.xt.DeploymentService": true,
+      "cds.xt.ExtensibilityService": true,
+      "[development]": {
+        "db": {
+          "kind": "sqlite",
+          "credentials": {
+            "url": "../../sqlite.db"
+          }
+        }
+      }
+    },
+    "[development]": {
+      "requires": {
+        "auth": "dummy"
+      },
+      "server": {
+        "port": 4005
+      }
+    }
   }
 }
