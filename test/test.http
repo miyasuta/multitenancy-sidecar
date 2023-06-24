@@ -1,17 +1,23 @@
-POST http://localhost:4004/-/cds/deployment/subscribe HTTP/1.1
+@sidecar=http://localhost:4005
+@main=http://localhost:4004
+POST {{sidecar}}/-/cds/deployment/subscribe HTTP/1.1
 Content-Type: application/json
 Authorization: Basic yves:
 
-{ "tenant": "t1" }
+{ "tenant": "t3" }
 
 
 ###
-POST http://localhost:4004/catalog/Books HTTP/1.1
+POST {{main}}/catalog/Books HTTP/1.1
 Content-Type: application/json
 Authorization: Basic alice:
 
 { 
-    "ID": 1,
+    "ID": 4,
     "title": "Tenant 1",
     "stock": 100 
 }
+
+###
+GET {{main}}/catalog/Books HTTP/1.1
+Authorization: Basic alice:
